@@ -1,0 +1,37 @@
+<div class="container">
+ <div class="row">
+  <div class="col-lg-3">
+   <h1>User info</h1>
+
+    <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %> 
+   <h4 class="profile-name"> name <%= user.name %></h4>
+   <h4 class="profile-introduction"> introduction <%= user.introduction %></h4>
+     <% if user.id == current_user.id %>
+      <%= link_to(edit_user_path(user), class:"btn btn-outline-dark") do %>
+          <i class="glyphicon glyphicon-wrench"></i>
+      <% end %>
+    <% end %>
+<% if user.errors.any? %>
+  <div class="alert alert-warning">
+    <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+    <% end %>
+    <h2>New book</h2>
+    <%= form_for(book) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <h4>Title</h4>
+    <%= f.text_field :title %><br>
+
+    <h4>Opinion</h4>
+    <%= f.text_area :body %><br>
+
+    <%= f.submit 'Create Book',class:"btn btn-primary" %>
+
+     <% end %>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <div class="header" id="header">
+      <nav class="navbar navbar-main navbar-shadow" role="navigation" id="slide-nav">
+        <div class="container relative">
+          <div class="navbar-header">
+            <p>Bookers</p>
+  <div id="slidemenu">
+  <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+    <% if user_signed_in? %>
+      <li class="">
+        <%= link_to(user_path(current_user.id), class:"btn btn-dark ") do %>
+        <i class ="glyphicon glyphicon-home"> </i>
+         <span>Home</span>
+         <% end %>
+      </li>
+      <li class="">
+        <%= link_to(users_path, class:"btn btn-dark ") do %>
+        <i class="glyphicon glyphicon-user"></i>
+        <span>Users</span>
+         <% end %>
+      </li>
+      <li class="">
+        <%= link_to(books_path, class:"btn btn-dark ") do %>
+        <i class="glyphicon glyphicon-book"></i>
+        <span>Books</span>
+         <% end %>
+      </li>
+      <li class="">
+        <%= link_to(destroy_user_session_path, method: :delete, class:"btn btn-dark") do %>
+        <i class="glyphicon glyphicon-log-out"></i>
+        <span>logout</span>
+         <% end %>
+      </li>
+    <% else %>
+      <li class="">
+        <%= link_to(root_path, class:"btn btn-default") do %>
+        <i class = "glyphicon glyphicon-home"> </i>
+        <span>Home</span>
+         <% end %>
+      </li>
+      <li class="">
+        <%= link_to(homes_about_path, class:"btn btn-default") do %>
+        <i class="glyphicon glyphicon-link"></i>
+        <span>About</span>
+        <% end %>
+      </li>
+      <li class="">
+        <%= link_to(new_user_registration_path, class:"btn btn-default") do %>
+        <i class="glyphicon glyphicon-edit"></i>
+        <span>sign up</span>
+         <% end %>
+      </li>
+      <li class="">
+        <%= link_to(new_user_session_path, class:"btn btn-default") do %>
+        <p class="glyphicon glyphicon-log-in"></p>
+        <span>login</span>
+         <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+</div>
+</div>
+</nav>
+</div>
+  <body>
+    <%= yield %>
+  </body>
+</html>
