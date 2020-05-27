@@ -3,6 +3,10 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
+<section class="sct-color-1 slice">
+  <div class="container-fluid masonry-container">
+    <div class="row">
+      <div class="col-md-4 col-sm-offset-4">
 <h1>Editing Book</h1>
 <%= form_for(@book) do |f| %>
  <%= render 'layouts/error_messages', model: f.object %>
@@ -12,8 +16,13 @@
     <h4>Opinion</h4>
     <%= f.text_area :body %><br>
 
-    <%= f.submit 'Update Book' %><br>
+    <%= f.submit 'Update Book', class:'btn btn-primary' %><br>
     <% end %>
     <%= link_to "Show",book_path(@book.id)  %>
     |
     <%= link_to "Back", books_path %>
+    <p align="right">CopyRight Infratop.inc</p>
+     </div>
+    </div>
+   </div>
+</section>

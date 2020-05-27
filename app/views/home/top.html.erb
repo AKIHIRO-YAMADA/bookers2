@@ -2,7 +2,11 @@
   <div class="container-fluid masonry-container">
     <div class="row">
       <div class="col-md-8 col-sm-offset-2">
-       
+        <% if flash[:notice] %>
+         <div class="flash">
+         <%= flash[:notice] %>
+          </div>
+           <% end %>
         <h1>Welcome to</h1>
           <span class="glyphicon glyphicon-book"><strong>Bookers</strong>  !!</span>
 
@@ -14,10 +18,10 @@
                   about various books!</p>
                 <ul>
                 <li style=" list-style: none;">
-                    <%= link_to 'Log In', new_user_session_path %>
+                   <%= link_to "Log In", new_user_session_path, class:"btn btn-info" %>
                   </li>
                   <li style=" list-style: none;">
-                    <%= link_to 'Sign Up', new_user_registration_path %>
+                    <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-success" %>
                   </li>
                 </ul>
                 <p align="right">CopyRight Infratop.inc</p>
@@ -27,4 +31,3 @@
     </div>
   </div>
 </section>
-
