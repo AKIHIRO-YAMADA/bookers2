@@ -1,12 +1,14 @@
-<%= render 'users/list',user:@user ,book:@book %>
-<div class="container-fluid masonry-container">
+<div class="container">
+ <p id="notice"></p> 
  <div class="row">
-  <div class="col-lg-9"> 
-   <div class=”form-inline”>
+  <div class="col-xs-3">
+  <%= render 'users/list',user:@user ,book:@book %>
+  </div>
+  <div class="col-xs-9"> 
    <h2>Users</h2>
     <table class="table table">
     <thead>
-        <th>image</th>
+         <th>image</th>
          <th>name</th>
          <th colspan="2"></th>
     </thead>
@@ -14,7 +16,7 @@
      <% @users.each do |user| %>
      <tr>
         <td>
-          <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-square pull-left profile-img", fallback: "no_image.jpg" %> 
+          <%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', class: "img-square pull-left profile-img", fallback: "no_image.jpg" %> 
         </td>
         <td>
           <%= user.name %>
@@ -26,9 +28,8 @@
 <% end %>
     </tboby>
    </table>
-   <p align="right">CopyRight Infratop.inc</p>
    </div>
   </div>
  </div>
-</div>
-</form>
+
+

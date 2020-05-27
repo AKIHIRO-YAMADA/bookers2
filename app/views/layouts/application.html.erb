@@ -1,78 +1,85 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
+    <title>Bookers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <div class="header" id="header">
-      <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <h4 class="text-muted">Bookers</h4>
-  <div id="slidemenu">
-  <ul class="nav navbar-nav navbar-right" >
-    <% if user_signed_in? %>
-      <li class="">
-        <%= link_to(user_path(current_user.id), class:"btn btn-dark ") do %>
-        <i class ="glyphicon glyphicon-home"> </i>
-         <span>Home</span>
-         <% end %>
-      </li>
-      <li class="">
-        <%= link_to(users_path, class:"btn btn-dark ") do %>
-        <i class="glyphicon glyphicon-user"></i>
-        <span>Users</span>
-         <% end %>
-      </li>
-      <li class="">
-        <%= link_to(books_path, class:"btn btn-dark ") do %>
-        <i class="glyphicon glyphicon-book"></i>
-        <span>Books</span>
-         <% end %>
-      </li>
-      <li class="">
-        <%= link_to(destroy_user_session_path, method: :delete, class:"btn btn-dark") do %>
-        <i class="glyphicon glyphicon-log-out"></i>
-        <span>logout</span>
-         <% end %>
-      </li>
-    <% else %>
-      <li class="">
-        <%= link_to(root_path, class:"btn btn-dark") do %>
-        <i class = "glyphicon glyphicon-home"> </i>
-        <span>Home</span>
-         <% end %>
-      </li>
-      <li class="">
-        <%= link_to(homes_about_path, class:"btn btn-dark") do %>
-        <i class="glyphicon glyphicon-link"></i>
-        <span>About</span>
-        <% end %>
-      </li>
-      <li class="">
-        <%= link_to(new_user_registration_path, class:"btn btn-dark") do %>
-        <i class="glyphicon glyphicon-edit"></i>
-        <span>sign up</span>
-         <% end %>
-      </li>
-      <li class="">
-        <%= link_to(new_user_session_path, class:"btn btn-dark") do %>
-        <p class="glyphicon glyphicon-log-in"></p>
-        <span>login</span>
-         <% end %>
-      </li>
-    <% end %>
-  </ul>
-</div>
-</div>
-</div>
-</nav>
-</div>
-  <body>
-    <%= yield %>
-  </body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+   <div class="container">
+     <nav class="nav navbar-nav navbar-left">
+      <h4>Bookers</h4>
+     </nav>
+     <nav>
+      <ul class="nav navbar-nav navbar-right" >
+        <% if user_signed_in? %>
+          <li class="">
+            <%= link_to(user_path(current_user.id), class:"btn btn-dark ") do %>
+            <i class ="glyphicon glyphicon-home"> </i>
+             <span>Home</span>
+             <% end %>
+          </li>
+          <li class="">
+            <%= link_to(users_path, class:"btn btn-dark ") do %>
+            <i class="glyphicon glyphicon-user"></i>
+            <span>Users</span>
+             <% end %>
+          </li>
+          <li class="">
+            <%= link_to(books_path, class:"btn btn-dark ") do %>
+            <i class="glyphicon glyphicon-book"></i>
+            <span>Books</span>
+             <% end %>
+          </li>
+          <li class="">
+            <%= link_to(destroy_user_session_path, method: :delete, class:"btn btn-dark") do %>
+            <i class="glyphicon glyphicon-log-out"></i>
+            <span>logout</span>
+             <% end %>
+          </li>
+        <% else %>
+          <li class="">
+            <%= link_to(root_path, class:"btn btn-dark") do %>
+            <i class = "glyphicon glyphicon-home"> </i>
+            <span>Home</span>
+             <% end %>
+          </li>
+          <li class="">
+            <%= link_to(home_about_path, class:"btn btn-dark") do %>
+            <i class="glyphicon glyphicon-link"></i>
+            <span>About</span>
+            <% end %>
+          </li>
+          <li class="">
+            <%= link_to(new_user_registration_path, class:"btn btn-dark") do %>
+            <i class="glyphicon glyphicon-edit"></i>
+            <span>sign up</span>
+             <% end %>
+          </li>
+          <li class="">
+            <%= link_to(new_user_session_path, class:"btn btn-dark") do %>
+            <p class="glyphicon glyphicon-log-in"></p>
+            <span>login</span>
+             <% end %>
+          </li>
+          <% end %>
+         </ul>
+        </div>
+      </nav>
+     </header>
+      <body>
+      <%= yield %>
+      </body> 
+  <footer>
+   <div class = "container">
+     <div class = "row">
+       <div class="col-xs-3 col-xs-offset-9">
+        <p>CopyRight Infratop.inc</p>
+       </div>
+     </div>
+    </div>
+  </footer> 
 </html>

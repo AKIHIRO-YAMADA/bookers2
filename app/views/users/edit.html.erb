@@ -1,12 +1,6 @@
-<div class="container-fluid masonry-container">
- <div class="row">
-　<div class="col-lg-9"> 
+<div class="container">
+ <p id="notice"></p> 
  　<h1>User info</h1>
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
   　<%= form_for(@user) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
 
@@ -19,7 +13,6 @@
     <%= f.text_area :introduction %><br>
     <%= f.submit 'Update User' %><br>
     <% end %>
- 　　　<p align="right">CopyRight Infratop.inc</p>
 　 </div>
  </div>
 </div>

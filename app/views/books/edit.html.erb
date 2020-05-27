@@ -3,26 +3,24 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-<section class="sct-color-1 slice">
-  <div class="container-fluid masonry-container">
+  <div class="container">
+   <p id="notice"></p> 
     <div class="row">
-      <div class="col-md-4 col-sm-offset-4">
-<h1>Editing Book</h1>
-<%= form_for(@book) do |f| %>
- <%= render 'layouts/error_messages', model: f.object %>
+      <div class="col-md-6 col-sm-offset-3">
+  <h1>Editing Book</h1>
+  <%= form_for(@book) do |f| %>
+   <%= render 'layouts/error_messages', model: f.object %>
 
     <h4>Title</h4>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class:"col-xs-12" %>
     <h4>Opinion</h4>
-    <%= f.text_area :body %><br>
+    <%= f.text_area :body, class:"col-xs-12" %><br>
 
-    <%= f.submit 'Update Book', class:'btn btn-primary' %><br>
+    <%= f.submit 'Update Book', class:"btn btn-primary btn-block", style:"margin-top:40px;" %><br>
     <% end %>
     <%= link_to "Show",book_path(@book.id)  %>
     |
     <%= link_to "Back", books_path %>
-    <p align="right">CopyRight Infratop.inc</p>
      </div>
     </div>
    </div>
-</section>
